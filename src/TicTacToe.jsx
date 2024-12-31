@@ -41,12 +41,13 @@ function TicTacToe() {
     ];
     for (let i = 0; i < combination.length; i++) {
       const [a, b, c] = combination[i];
-      if (newBoard[a] &&  newBoard[b] && newBoard[b] === newBoard[c]) {
+      if (newBoard[a] && newBoard[a] === newBoard[b] && newBoard[a] === newBoard[c]) {
         return combination[i];
       }
     }
     return null;
   };
+  
 
   const handleReset = () => {
     setBoard(Array(9).fill(null));
@@ -57,6 +58,7 @@ function TicTacToe() {
   return (
     <>
     <div className="board-container">
+      <div><h3>Tic Tac Toe Game</h3></div>
       <div className="board">
         <div className="board-row">
           {renderSquare(0)}
@@ -74,7 +76,7 @@ function TicTacToe() {
           {renderSquare(8)}
         </div>
       </div>
-      <button className="rest-btn" onClick={handleReset}>
+      <button className="rest-btn " onClick={handleReset}>
         Reset
       </button>
       {winner && <div>{winner} is the winner of this Game.</div>}
